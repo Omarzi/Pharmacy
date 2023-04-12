@@ -56,6 +56,7 @@ dependencies:
   # dot_navigation_bar: ^1.0.1+4
   animated_bottom_navigation_bar: ^1.1.0+1
   auto_size_text: ^3.0.0
+  flutter_svg:
 dev_dependencies:
   flutter_test:
     sdk: flutter

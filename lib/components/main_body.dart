@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmazool/components/constants.dart';
 
 class MainBody extends StatelessWidget {
   const MainBody({Key? key, required this.child, this.padding = const EdgeInsets.only(top: 30.0) // Default padding

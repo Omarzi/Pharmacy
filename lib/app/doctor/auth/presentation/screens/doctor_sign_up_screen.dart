@@ -391,6 +391,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmazool/core/utils/media_query_values.dart';
+import 'package:pharmazool/files_doctor/home_screen.dart';
 
 import '../../../../../core/utils/app_theme_colors.dart';
 import '../../../../patient/lay_out.dart';
@@ -605,6 +606,10 @@ class doctorSignUp extends StatelessWidget {
                       //     context,
                       //     MaterialPageRoute(
                       //         builder: (context) => const HomeLayOut()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeLayoutDoctor()));
                       // }
                     },
                     child: const AutoSizeText(

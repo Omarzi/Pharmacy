@@ -278,9 +278,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmazool/app/patient/auth/presentation/screens/forget_password_screem.dart';
+import 'package:pharmazool/app/patient/home/presentation/screens/bottom_screens/home_screen.dart';
 import 'package:pharmazool/core/utils/app_theme_colors.dart';
 import 'package:pharmazool/core/utils/media_query_values.dart';
 import 'package:pharmazool/app/patient/lay_out.dart';
+import 'package:pharmazool/files_doctor/home_screen.dart';
 
 class doctorSignin extends StatelessWidget {
   const doctorSignin({super.key});
@@ -387,10 +389,10 @@ class doctorSignin extends StatelessWidget {
                       //     email: emailController.text,
                       //     password: passwordController.text);
 
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const HomeLayOut()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeLayoutDoctor()));
                       // }
                     },
                     child: const AutoSizeText(
