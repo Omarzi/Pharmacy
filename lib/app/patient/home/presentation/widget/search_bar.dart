@@ -26,14 +26,14 @@ class _SearchBarState extends State<SearchBar> {
       padding: EdgeInsets.symmetric(horizontal: 25),
       child: Container(
         // width: context.width * 0.9,
-        height: context.height * 0.2,
+        height: context.height * 0.1,
         child: Column(
           children: [
             Row(
               children: [
                 Expanded(
                   child: Container(
-                    height: context.height * .05,
+                    height: context.height * 0.09,
                     child: TextField(
                       style: TextStyle(
                         fontSize: context.height * 0.015,
@@ -77,59 +77,59 @@ class _SearchBarState extends State<SearchBar> {
                 ),
               ],
             ),
-            SizedBox(
-              height: context.height * 0.05,
-            ),
-            if (scanResult == null)
-              Container(
-                  width: context.width * 0.9,
-                  height: context.height * 0.1,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.amber,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('نتيجة الباركود:',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: context.height * 0.019)),
-                      ],
-                    ),
-                  ))
-            else
-              Container(
-                width: context.width * 0.9,
-                height: context.height * 0.1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.amber,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('نتيجة الباركود :',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: context.height * 0.015)),
-                      SizedBox(
-                        height: context.height * 0.01,
-                      ),
-                      Text(' ${scanResult == -1 ? '' : scanResult}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: context.height * 0.015)),
-                    ],
-                  ),
-                ),
-              ),
+            // SizedBox(
+            //   height: context.height * 0.01,
+            // ),
+            // if (scanResult == null)
+            //   Container(
+            //       width: context.width * 0.9,
+            //       height: context.height * 0.1,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(10),
+            //         color: Colors.amber,
+            //       ),
+            //       child: Padding(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child: Column(
+            //           mainAxisAlignment: MainAxisAlignment.start,
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: [
+            //             Text('نتيجة الباركود:',
+            //                 style: TextStyle(
+            //                     fontWeight: FontWeight.bold,
+            //                     fontSize: context.height * 0.019)),
+            //           ],
+            //         ),
+            //       ))
+            // else
+            //   Container(
+            //     width: context.width * 0.9,
+            //     height: context.height * 0.1,
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(10),
+            //       color: Colors.amber,
+            //     ),
+            //     child: Padding(
+            //       padding: const EdgeInsets.all(8.0),
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           Text('نتيجة الباركود :',
+            //               style: TextStyle(
+            //                   fontWeight: FontWeight.bold,
+            //                   fontSize: context.height * 0.015)),
+            //           SizedBox(
+            //             height: context.height * 0.01,
+            //           ),
+            //           Text(' ${scanResult == -1 ? '' : scanResult}',
+            //               style: TextStyle(
+            //                   fontWeight: FontWeight.bold,
+            //                   fontSize: context.height * 0.015)),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
           ],
         ),
       ),

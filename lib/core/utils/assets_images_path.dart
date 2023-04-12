@@ -14,6 +14,9 @@ String panadol = _getAssetsImagePath('panadol.png');
 String patient = _getAssetsImagePath('patient.png');
 String doctor = _getAssetsImagePath('doctor.png');
 String scanlogo = _getAssetsImagePath('scanlogo.jpg');
+String hair = _getAssetsImagePath('hair.png');
+String header = _getAssetsImagePath('header.png');
+String ppp = _getAssetsImagePath('ppp.png');
 
 String _getAssetsImagePath(String fileName) {
   return imageAssetsRoot + fileName;

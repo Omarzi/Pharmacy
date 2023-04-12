@@ -233,7 +233,7 @@ class CardWidget extends StatelessWidget {
                         children: [
                           Container(
                             width: context.width * 1,
-                            child: Row(
+                           /* child: Row(
                               // mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
@@ -250,7 +250,7 @@ class CardWidget extends StatelessWidget {
                                   ),
                                 ),
                                 // Spacer(),
-                                Container(
+                               /* Container(
                                   width: context.width * 0.24,
                                   child: RatingBar.builder(
                                     initialRating: 3,
@@ -268,9 +268,9 @@ class CardWidget extends StatelessWidget {
                                       // print(rating);
                                     },
                                   ),
-                                ),
+                                ),*/
                               ],
-                            ),
+                            ),*/
                           )
                         ],
                       ),

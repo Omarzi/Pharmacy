@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmazool/splach_screen.dart';
+import 'package:pharmazool/onboarding_screen.dart';
+import 'package:pharmazool/splash_screen.dart';
 
 import 'app/patient/home/presentation/controller/app_cubit/cubit.dart';
 import 'app/patient/home/presentation/controller/app_cubit/states.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
                 )),
                 primarySwatch: Colors.teal),
             debugShowCheckedModeBanner: false,
-            home: SplachScreen(),
+            home: SplashScreen(),
           );
         },
       ),

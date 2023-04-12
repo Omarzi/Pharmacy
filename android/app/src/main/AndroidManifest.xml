@@ -17,6 +17,8 @@
         android:label="pharmazool"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAmueQeHbpoFL6Aa7jULAUw8F02YicXhi8"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

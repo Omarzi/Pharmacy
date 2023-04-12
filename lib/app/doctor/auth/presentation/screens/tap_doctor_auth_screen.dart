@@ -60,10 +60,10 @@ class _TabBarScreen_doctorState extends State<TabBarScreen_doctor> {
                         indicatorSize: TabBarIndicatorSize.tab,
                         tabs: const [
                           Tab(
-                            text: 'Sign In',
+                            text: 'تسجيل الدخول',
                           ),
                           Tab(
-                            text: 'Sign Up',
+                            text: 'انشاء حساب جديد',
                           ),
                         ]),
                     Container(

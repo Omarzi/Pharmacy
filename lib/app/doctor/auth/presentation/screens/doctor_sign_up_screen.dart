@@ -405,139 +405,219 @@ class doctorSignUp extends StatelessWidget {
     var icensenumber = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return Form(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: context.height * 0.1,
-          ),
-          TextFormField(
-            controller: useRController,
-            keyboardType: TextInputType.emailAddress,
-            onTap: () {},
-            validator: (String? value) {
-              if (value!.isEmpty) {
-                return ' الرجاء ادخال الاسم';
-              }
-            },
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.person_outline,
-                color: AppColors.PharmaColor,
-              ),
-              labelText: 'اسم المستخدم',
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(5),
-              // )
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: context.height * 0.05,
             ),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          TextFormField(
-            controller: useRController,
-            keyboardType: TextInputType.number,
-            onTap: () {},
-            validator: (String? value) {
-              if (value!.isEmpty) {
-                return ' رقم الصيدلية غير مسجل';
-              }
-            },
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.numbers,
-                color: AppColors.PharmaColor,
-              ),
-              labelText: 'رقم الصيدلية',
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(5),
-              // )
-            ),
-          ),
-          //pharm name
-          const SizedBox(
-            height: 2,
-          ),
-          TextFormField(
-            controller: useRController,
-            keyboardType: TextInputType.text,
-            onTap: () {},
-            validator: (String? value) {
-              if (value!.isEmpty) {
-                return 'اسم الصيدلية غير مسجل';
-              }
-            },
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.person,
-                color: AppColors.PharmaColor,
-              ),
-              labelText: 'اسم الصيدلية',
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(5),
-              // )
-            ),
-          ),
-          SizedBox(
-            height: context.height * 0.04,
-          ),
-          SizedBox(
-            width: context.width * 1,
-            child: TextFormField(
-              controller: passwordController,
+            TextFormField(
+              controller: useRController,
               keyboardType: TextInputType.emailAddress,
               onTap: () {},
               validator: (String? value) {
                 if (value!.isEmpty) {
-                  return 'الرجاء ادخال كلمة المرور ';
+                  return ' الرجاء ادخال الاسم';
                 }
               },
               decoration: InputDecoration(
                 prefixIcon: Icon(
-                  Icons.lock_outlined,
+                  Icons.person_outline,
                   color: AppColors.PharmaColor,
                 ),
-                labelText: 'كلمة المرور',
+                labelText: 'اسم المستخدم',
                 // border: OutlineInputBorder(
                 //   borderRadius: BorderRadius.circular(5),
                 // )
               ),
             ),
-          ),
-          SizedBox(
-            height: context.height * 0.07,
-          ),
-          Center(
-            child: Container(
-              width: context.width * 0.5,
-              // height: context.height * .25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.PharmaColor,
-              ),
-              child: TextButton(
-                  onPressed: () {
-                    // if (formKey.currentState!.validate()) {
-                    // LoginCubit.get(context).UserLogin(
-                    //     email: emailController.text,
-                    //     password: passwordController.text);
-
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const HomeLayOut()));
-                    // }
-                  },
-                  child: const AutoSizeText(
-                    'اشتراك',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                  )),
+            const SizedBox(
+              height: 2,
             ),
-          ),
-        ],
+            TextFormField(
+              controller: useRController,
+              keyboardType: TextInputType.number,
+              onTap: () {},
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return ' رقم الصيدلية غير مسجل';
+                }
+              },
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.numbers,
+                  color: AppColors.PharmaColor,
+                ),
+                labelText: 'رقم الرخصة',
+                // border: OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(5),
+                // )
+              ),
+            ),
+            //pharm name
+            const SizedBox(
+              height: 2,
+            ),
+            TextFormField(
+              controller: useRController,
+              keyboardType: TextInputType.text,
+              onTap: () {},
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return 'اسم الصيدلية غير مسجل';
+                }
+              },
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.person,
+                  color: AppColors.PharmaColor,
+                ),
+                labelText: 'اسم الصيدلية',
+                // border: OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(5),
+                // )
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            SizedBox(
+              width: context.width * 1,
+              child: TextFormField(
+                controller: passwordController,
+                keyboardType: TextInputType.emailAddress,
+                onTap: () {},
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'الرجاء ادخال كلمة المرور ';
+                  }
+                },
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock_outlined,
+                    color: AppColors.PharmaColor,
+                  ),
+                  labelText: 'كلمة المرور',
+                  // border: OutlineInputBorder(
+                  //   borderRadius: BorderRadius.circular(5),
+                  // )
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            SizedBox(
+              width: context.width * 1,
+              child: TextFormField(
+                controller: passwordController,
+                keyboardType: TextInputType.phone,
+                onTap: () {},
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'الرجاء ادخال رقم التليفون';
+                  }
+                },
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.phone,
+                    color: AppColors.PharmaColor,
+                  ),
+                  labelText: 'رقم التليفون',
+                  // border: OutlineInputBorder(
+                  //   borderRadius: BorderRadius.circular(5),
+                  // )
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            SizedBox(
+              width: context.width * 1,
+              child: TextFormField(
+                controller: passwordController,
+                keyboardType: TextInputType.phone,
+                onTap: () {},
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'الرجاء ادخال الموقع الجغرافي';
+                  }
+                },
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.location_on,
+                    color: AppColors.PharmaColor,
+                  ),
+                  labelText: 'الموقع الجغرافي',
+                  // border: OutlineInputBorder(
+                  //   borderRadius: BorderRadius.circular(5),
+                  // )
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            SizedBox(
+              width: context.width * 1,
+              child: TextFormField(
+                controller: passwordController,
+                keyboardType: TextInputType.phone,
+                onTap: () {},
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'الرجاء ادخال مواعيد العمل';
+                  }
+                },
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.timer,
+                    color: AppColors.PharmaColor,
+                  ),
+                  labelText: 'مواعيد العمل',
+                  // border: OutlineInputBorder(
+                  //   borderRadius: BorderRadius.circular(5),
+                  // )
+                ),
+              ),
+            ),
+            SizedBox(
+              height: context.height * 0.07,
+            ),
+            Center(
+              child: Container(
+                width: context.width * 0.5,
+                // height: context.height * .25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.PharmaColor,
+                ),
+                child: TextButton(
+                    onPressed: () {
+                      // if (formKey.currentState!.validate()) {
+                      // LoginCubit.get(context).UserLogin(
+                      //     email: emailController.text,
+                      //     password: passwordController.text);
+
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const HomeLayOut()));
+                      // }
+                    },
+                    child: const AutoSizeText(
+                      'اشتراك',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    )),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -98,6 +98,8 @@ class MapScreen extends StatelessWidget {
                                                 SizedBox(
                                                   height: context.height * 0.05,
                                                 ),
+
+                                                ////
                                                 Container(
                                                   width: context.width * 0.8,
                                                   height: context.height * .4,

@@ -277,6 +277,7 @@
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmazool/app/patient/auth/presentation/screens/forget_password_screem.dart';
 import 'package:pharmazool/core/utils/app_theme_colors.dart';
 import 'package:pharmazool/core/utils/media_query_values.dart';
 import 'package:pharmazool/app/patient/lay_out.dart';
@@ -290,92 +291,147 @@ class doctorSignin extends StatelessWidget {
     var passwordController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return Form(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: context.height * 0.1,
-          ),
-          TextFormField(
-            controller: emailController,
-            keyboardType: TextInputType.emailAddress,
-            onTap: () {},
-            validator: (String? value) {
-              if (value!.isEmpty) {
-                return ' Email is Not Registered';
-              }
-            },
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.person_outline,
-                color: AppColors.PharmaColor,
-              ),
-              labelText: 'Your Email',
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(5),
-              // )
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: context.height * 0.1,
             ),
-          ),
-          SizedBox(
-            height: context.height * 0.04,
-          ),
-          SizedBox(
-            width: context.width * 1,
-            child: TextFormField(
-              controller: passwordController,
+            TextFormField(
+              controller: emailController,
               keyboardType: TextInputType.emailAddress,
               onTap: () {},
               validator: (String? value) {
                 if (value!.isEmpty) {
-                  return ' password is Not Valid';
+                  return 'الرجاء أدخال اسم المستخدم';
                 }
               },
               decoration: InputDecoration(
                 prefixIcon: Icon(
-                  Icons.lock_outlined,
+                  Icons.person_outline,
                   color: AppColors.PharmaColor,
                 ),
-                labelText: 'Your Password',
+                labelText: 'أسم المستخدم',
                 // border: OutlineInputBorder(
                 //   borderRadius: BorderRadius.circular(5),
                 // )
               ),
             ),
-          ),
-          SizedBox(
-            height: context.height * 0.07,
-          ),
-          Center(
-            child: Container(
-              width: context.width * 0.5,
-              // height: context.height * .25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.PharmaColor,
+            SizedBox(
+              height: context.height * 0.04,
+            ),
+            SizedBox(
+              width: context.width * 1,
+              child: TextFormField(
+                controller: passwordController,
+                keyboardType: TextInputType.emailAddress,
+                onTap: () {},
+                validator: (String? value) {
+                  if (value!.isEmpty) {
+                    return 'كلمة المرور ليست متطابقة';
+                  }
+                },
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock_outlined,
+                    color: AppColors.PharmaColor,
+                  ),
+                  labelText: 'كلمة المرور',
+                  // border: OutlineInputBorder(
+                  //   borderRadius: BorderRadius.circular(5),
+                  // )
+                ),
               ),
-              child: TextButton(
-                  onPressed: () {
-                    // if (formKey.currentState!.validate()) {
-                    // LoginCubit.get(context).UserLogin(
-                    //     email: emailController.text,
-                    //     password: passwordController.text);
-
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const HomeLayOut()));
-                    // }
+            ),
+            SizedBox(
+              height: context.height * 0.04,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgetPasswordSreen(),
+                      ),
+                    );
                   },
-                  child: const AutoSizeText(
-                    'Sign In',
+                  child: Text(
+                    'نسيت كلمة المرور؟',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.PharmaColor,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
-                  )),
+                  ),
+                )
+              ],
             ),
-          ),
-        ],
+            SizedBox(
+              height: context.height * 0.04,
+            ),
+            Center(
+              child: Container(
+                width: context.width * 0.5,
+                // height: context.height * .25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.PharmaColor,
+                ),
+                child: TextButton(
+                    onPressed: () {
+                      // if (formKey.currentState!.validate()) {
+                      // LoginCubit.get(context).UserLogin(
+                      //     email: emailController.text,
+                      //     password: passwordController.text);
+
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const HomeLayOut()));
+                      // }
+                    },
+                    child: const AutoSizeText(
+                      'تسجيل الدخول',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    )),
+              ),
+            ),
+            /*SizedBox(height: 50),
+            Card(
+              color: Colors.white.withOpacity(.8),
+              shape: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                width: double.infinity,
+                height: 100,
+                child: Column(
+                  children: [
+                    Text(
+                      'مواعيد العمل الرسمية',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'مواعيد العمل من 8 صباحا الي 11 مساءا',
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            */
+            SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

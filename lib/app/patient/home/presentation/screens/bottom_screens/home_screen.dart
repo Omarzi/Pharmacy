@@ -1,8 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pharmazool/app/patient/home/presentation/screens/bottom_screens/motabra_screen.dart';
+
 // import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pharmazool/core/utils/media_query_values.dart';
+import 'package:pharmazool/location.dart';
+import 'package:pharmazool/onboarding_screen.dart';
+import 'package:pharmazool/shared_for_spoken.dart';
+import 'package:pharmazool/splash_screen.dart';
+import 'package:pharmazool/who_are_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import '../MedicineScreen.dart';
@@ -28,6 +35,9 @@ List<HomeIconsModel> HomeList = [
   HomeIconsModel(icon: diabetesCare, title: 'الامراض المزمنة', id: 4),
   HomeIconsModel(icon: babyCare, title: 'عناية الطفل', id: 5),
   HomeIconsModel(icon: heartCare, title: 'رعاية القلب', id: 6),
+  HomeIconsModel(icon: header, title: 'المعدات الطبية', id: 4),
+  HomeIconsModel(icon: ppp, title: 'العناية بالجسم', id: 5),
+  HomeIconsModel(icon: hair, title: 'العناية بالشعر', id: 6),
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -39,17 +49,24 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String? scanResult;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "Home",
+        elevation: 0,
+        title: const AutoSizeText(
+          "الرئيسية",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 19,
+          ),
         ),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
-      drawer: Drawer(
+      endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -60,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(
                         "https://randomuser.me/api/portraits/men/47.jpg"),
-                    radius: 55,
+                    radius: 50,
                   ),
                   Positioned(
                     bottom: 8.0,
@@ -74,47 +91,121 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
+              trailing: Icon(Icons.arrow_forward_ios, size: 20),
+              leading: Icon(Icons.person_pin),
               title: const Text(
                 'من نحن ؟',
                 style: TextStyle(
-                    color: Colors.black,
-                    // fontSize: context.height * 0.017,
-                    fontSize: 25,
-                    fontStyle: FontStyle.normal,
-                    fontFamily: 'Schyler'),
+                  color: Colors.black,
+                  // fontSize: context.height * 0.017,
+                  fontSize: 20,
+                  fontStyle: FontStyle.normal,
+                  fontFamily: 'Schyler',
+                ),
               ),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WhoAreScreen(),
+                  ),
+                );
               },
             ),
             const SizedBox(),
             ListTile(
+              trailing: Icon(Icons.arrow_forward_ios, size: 20),
+              leading: Icon(Icons.favorite),
+              title: const Text(
+                'التبرع بالأدوية',
+                style: TextStyle(
+                  color: Colors.black,
+                  // fontSize: context.height * 0.017,
+                  fontSize: 20,
+                  fontStyle: FontStyle.normal,
+                  fontFamily: 'Schyler',
+                ),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MotabraScreen(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(),
+            ListTile(
+              trailing: Icon(Icons.arrow_forward_ios, size: 20),
+              leading: Icon(Icons.message),
               title: const Text(
                 'شاركنا باقتراحك',
                 style: TextStyle(
                     color: Colors.black,
                     // fontSize: context.height * 0.017,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontStyle: FontStyle.normal,
                     fontFamily: 'Schyler'),
               ),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SharedForSpoken(),
+                  ),
+                );
               },
             ),
             const SizedBox(),
             ListTile(
+              trailing: Icon(Icons.arrow_forward_ios, size: 20),
+              leading: Icon(Icons.location_on),
+              title: const Text(
+                'موقعنا',
+                style: TextStyle(
+                    color: Colors.black,
+                    // fontSize: context.height * 0.017,
+                    fontSize: 20,
+                    fontStyle: FontStyle.normal,
+                    fontFamily: 'Schyler'),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Location(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(),
+            ListTile(
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 20,
+              ),
+              leading: Icon(Icons.logout),
               title: const Text(
                 'تسجيل خروج',
                 style: TextStyle(
                     color: Colors.black,
                     // fontSize: context.height * 0.017,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontStyle: FontStyle.normal,
                     fontFamily: 'Schyler'),
               ),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OnBoardingScreen(),
+                  ),
+                );
               },
             ),
           ],
@@ -136,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           bottomRight: Radius.circular(10)),
                       image: DecorationImage(
                           image: AssetImage('assets/images/logo_11zon_low.png'),
-                          fit: BoxFit.fill)),
+                          fit: BoxFit.cover)),
                 ),
               ),
               SizedBox(
@@ -145,7 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SearchBar(),
               // SearchBar(ScanWidget: ScanBarCode()),
               SizedBox(
-                height: context.height * 0.05,
+                // height: context.height * 0.05,
               ),
               // BarCodeResult(),
               Container(
@@ -183,37 +274,37 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Future   ScanBarCode() async {
-  //   String scanResult;
-  // try {
-  //     scanResult = await FlutterBarcodeScanner.scanBarcode(
-  //         '#ff6666', 'Cancel', true, ScanMode.BARCODE);
-  //     print(
-  //         "456465455555554444444444444444444444444444444444444444444444444444444444555555555555555535555554$scanResult");
-  //   } on PlatformException {
-  //     scanResult = "Failed To Get Platform version.";
-  //     print(scanResult);
-  //   } on MissingPluginException {
-  //     scanResult =
-  //         "No implementation found for method scanBarcode on channel flutter_barcode_scanner";
-  //   }
-  //   // if (context.mounted != true) return;
-  //   if (mounted != true) return;
+// Future   ScanBarCode() async {
+//   String scanResult;
+// try {
+//     scanResult = await FlutterBarcodeScanner.scanBarcode(
+//         '#ff6666', 'Cancel', true, ScanMode.BARCODE);
+//     print(
+//         "456465455555554444444444444444444444444444444444444444444444444444444444555555555555555535555554$scanResult");
+//   } on PlatformException {
+//     scanResult = "Failed To Get Platform version.";
+//     print(scanResult);
+//   } on MissingPluginException {
+//     scanResult =
+//         "No implementation found for method scanBarcode on channel flutter_barcode_scanner";
+//   }
+//   // if (context.mounted != true) return;
+//   if (mounted != true) return;
 
-  //   setState(() {
-  //     this.scanResult = scanResult;
-  //     // ShowToust(Text: scanResult, state: ToustStates.SUCSESS);
-  //     // Fluttertoast.showToast(
-  //     //     msg: "This is Center Short Toast",
-  //     //     toastLength: Toast.LENGTH_SHORT,
-  //     //     gravity: ToastGravity.CENTER,
-  //     //     timeInSecForIosWeb: 1,
-  //     //     backgroundColor: Colors.red,
-  //     //     textColor: Colors.white,
-  //     //     fontSize: 16.0);
-  //   });
-  //   //
-  // }
+//   setState(() {
+//     this.scanResult = scanResult;
+//     // ShowToust(Text: scanResult, state: ToustStates.SUCSESS);
+//     // Fluttertoast.showToast(
+//     //     msg: "This is Center Short Toast",
+//     //     toastLength: Toast.LENGTH_SHORT,
+//     //     gravity: ToastGravity.CENTER,
+//     //     timeInSecForIosWeb: 1,
+//     //     backgroundColor: Colors.red,
+//     //     textColor: Colors.white,
+//     //     fontSize: 16.0);
+//   });
+//   //
+// }
 
 }
 
@@ -230,6 +321,7 @@ HomeGridView(
                   )));
     },
     child: SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(0),
@@ -238,6 +330,7 @@ HomeGridView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
             Image.asset(
               homeIconModel.icon,
               height: context.height * 0.1,
@@ -267,7 +360,6 @@ HomeGridView(
   );
 }
 
- 
 // class BarCodeResult extends StatefulWidget {
 //   const BarCodeResult({
 //     super.key,

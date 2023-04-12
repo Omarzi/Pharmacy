@@ -519,7 +519,7 @@ class patientSignUp extends StatelessWidget {
                     //     email: emailController.text,
                     //     password: passwordController.text);
 
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const HomeLayOut()));

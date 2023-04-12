@@ -47,16 +47,17 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomeLayOut()));
-          },
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(
+        //     Icons.arrow_back_ios_new,
+        //     color: Colors.black,
+        //   ),
+        //   onPressed: () {
+        //     Navigator.push(context,
+        //         MaterialPageRoute(builder: (context) => const HomeLayOut()));
+        //   },
+        // ),
+        leading: Container(),
         centerTitle: true,
         title: const AutoSizeText(
           "History",

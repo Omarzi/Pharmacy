@@ -33,7 +33,9 @@ dependencies:
     sdk: flutter
   dartz: ^0.10.1
   dio: ^4.0.6
-
+  percent_indicator: ^4.2.2
+  google_maps_flutter: ^2.2.5
+  maps_launcher: ^2.2.0
   equatable: ^2.0.5
   get_it: ^7.2.0
   flutter_bloc: ^8.1.1
